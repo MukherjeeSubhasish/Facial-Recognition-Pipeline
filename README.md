@@ -5,7 +5,7 @@ I am using the following dataset:
 load_orl_faces("orl_faces")
 
 
-Why I am not using BioID?
+Why am I not using BioID?
 
 The BioID dataset has a solid collection of face images. However, it does not provide a direct mapping between each image and a specific user name or user ID.
 For face recognition, such mapping is essential, because each image needs to be associated with the corresponding user. Doing this manually for BioID would take significant time.
