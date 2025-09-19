@@ -11,6 +11,7 @@ Therefore, I chose the ORL Faces dataset.
 	• The dataset is already organized in a hierarchical directory structure, making user-to-image mapping straightforward.
 
 ================================.       Steps.       ================================
+
 Step 1:
 Load the dataset:
 
