@@ -26,17 +26,20 @@ Load the dataset:
 import cv2
 
 Step 2:
+
 Map all images to their respective user IDs.
 
 This is already handled by the directory structure of the dataset.
 
 Step 3:
+
 Load a pretrained Haar Cascade model from OpenCV:
 haarcascade_frontalface_default.xml
 
 Initialize the detectMultiScale method from this classifier.
 
 Step 4:
+
 Use the detectMultiScale object to detect faces in each image.
 
 If detection is successful, crop and resize the face region to 100 × 100 pixels.
@@ -46,6 +49,7 @@ If detection is successful, crop and resize the face region to 100 × 100 pixels
 		○ (w, h) → width and height from that corner
 
 Step 5:
+
 Split the 400 images randomly into training and test sets (90% / 10%).
 
 Initialize the recognizer:
@@ -55,6 +59,7 @@ cv2.face.LBPHFaceRecognizer_create()
 Train (fine-tune) the recognizer with the training dataset.
 
 Step 6:
+
 Inference: Evaluate the model on the test dataset.
 
 Report the recognition accuracy.
