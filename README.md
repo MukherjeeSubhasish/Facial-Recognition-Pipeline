@@ -1,6 +1,9 @@
 Conceptual Design
+
 I am using the following dataset:
+
 load_orl_faces("orl_faces")
+
 
 Why I am not using BioID?
 The BioID dataset has a solid collection of face images. However, it does not provide a direct mapping between each image and a specific user name or user ID.
