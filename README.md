@@ -63,3 +63,75 @@ Step 6:
 Inference: Evaluate the model on the test dataset.
 
 Report the recognition accuracy.
+
+
+
+
+================================       Part2      ================================
+sources:
+https://www.kaggle.com/datasets/tavarez/the-orl-database-for-training-and-testing
+https://git-disl.github.io/GTDLBench/datasets/
+
+citation:
+
+@INPROCEEDINGS{GTDLBenchICDCS, 
+    author={{Liu}, Ling and {Wu}, Yanzhao and {Wei}, Wenqi and {Cao}, Wenqi and {Sahin}, Semih and {Zhang}, Qi}, 
+    booktitle={2018 IEEE 38th International Conference on Distributed Computing Systems (ICDCS)}, 
+    title="{Benchmarking Deep Learning Frameworks: Design Considerations, Metrics and Beyond}",
+    year={2018},
+    pages={1258-1269}, 
+    doi={10.1109/ICDCS.2018.00125}, 
+    ISSN={2575-8411}, 
+    month={July},
+}
+
+@ARTICLE{GTDLBencharTSC,
+    author={Y. {Wu} and L. {Liu} and C. {Pu} and W. {Cao} and S. {Sahin} and W. {Wei} and Q. {Zhang}}, 
+    journal={IEEE Transactions on Services Computing}, 
+    title={A Comparative Measurement Study of Deep Learning as a Service Framework}, 
+    year={2019}, 
+    volume={}, 
+    number={}, 
+    pages={1-1}, 
+    keywords={Libraries;Parallel processing;Hardware;Training;Runtime;Deep learning;Task analysis;Deep Learning as a Service;Big Data;Deep Neural Networks;Accuracy}, 
+    doi={10.1109/TSC.2019.2928551}, 
+    ISSN={1939-1374}, 
+    month={},
+}
+
+@INPROCEEDINGS{GTDLBenchBigData, 
+    author={{Wu}, Yanzhao and and {Cao}, Wenqi and {Sahin}, Semih and {Liu}, Ling}, 
+    booktitle={2018 IEEE 38th International Conference on Big Data}, 
+    title="{Experimental Characterizations and Analysis of Deep Learning Frameworks}", 
+    year={2018},
+    month={December},
+}
+
+Total image count = 400
+
+Individuals count = 40
+
+Each person has 10 face samples, all of the 10 face images are kept in a separate directory. Like S1, S2, ..., S40
+
+For training dataset, I would take 6 images
+
+For validation dataset, I would take 2 images
+
+For test dataset, I would take 2 images
+
+I need to make sure, all of the 40 human samples are in the 'train'/'validation'/ and 'test' dataset in exact 6:2:2 ratio. I need to randomize the dataset (seed=42 for reproducibility) before using for training/validation/testing. The model will not see the 'test' dataset during training. Therefore, the accuracy on the test dataset in inference should be unbiased.
+
+sample characteristics:
+
+resolution: 92 x 112
+
+sensors used: The ORL dataset consists of standard, visible-spectrum grayscale images of faces that were captured with a simple camera. No special or advanced sensors were used to create this classic dataset. 
+
+Slight variations in lighting. Images of the same person has some head rotation in different directions i.e. they are not facing the camera directly. 
+
+IN some of the images the person is wearing a glass. However, not everyone is wearing a glass.
+
+Mount open and mouth closed. I can sense different emotion. Anger-Smile etc.
+
+I have uploaded a baseline code. Your feedback will be appreciated.
+
