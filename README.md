@@ -1,68 +1,73 @@
 Conceptual Design
 
-I am using the following dataset:
+Dataset Choice
 
-load_orl_faces("orl_faces")
+Originally, I considered using the ORL Faces dataset because it provides a simple hierarchical mapping of users to images. However, for deep learning–based approaches like CNNs and Vision Transformers, the dataset size is too small to effectively train and evaluate complex models.
 
+To address this, I will:
 
-Why am I not using BioID?
+	• Use a larger, publicly available face dataset (e.g., LFW, VGGFace2, or MS-Celeb-1M). I will finalize this within 7 days [download and data processing and some sanity checks]
+	• Retain the ORL Faces dataset for small-scale experimentation purpose.
+	
+This hybrid approach ensures that:
 
-The BioID dataset has a solid collection of face images. However, it does not provide a direct mapping between each image and a specific user name or user ID.
+	1. A large dataset provides robust pre-trained weights.
+	2. My smaller dataset provides controlled testing and domain-specific validation.
 
-For face recognition, such mapping is essential, because each image needs to be associated with the corresponding user. Doing this manually for BioID would take significant time.
+Step 1: CNN-Based Face Recognition Pipeline
 
-Therefore, I chose the ORL Faces dataset.
+	1. Load Dataset
+		○ Use a large-scale dataset (e.g., VGGFace2).
+		○ Preprocess images: face detection, alignment, resizing (e.g., 224×224 for CNNs).
+		
+	2. CNN Backbone (Feature Extractor)
+		○ Use a pre-trained CNN such as AlexNet, ResNet-50, or FaceNet.
+		○ Modify architecture:
+			§ Remove the final classification layer.
+			§ Keep the embedding (feature vector) layer before classification.
+		○ This embedding serves as a compact representation of each face.
+		
+	3. Embedding-Based Recognition
+		○ For each known person, store the embedding vector(s).
+		○ For a new face, compute its embedding and compare against stored embeddings using distance metrics (e.g., cosine similarity, Euclidean distance).
+		○ Classification is then based on nearest-neighbor matching in embedding space, rather than a fixed classifier.
 
-	• It contains 400 face images of 40 people.
-	• Each person has 10 images.
-	• The dataset is already organized in a hierarchical directory structure, making user-to-image mapping straightforward.
+Step 2: Vision Transformers (ViT)
 
-================================.       Steps.       ================================
+	1. Use a Vision Transformer pretrained on a large dataset (e.g., ImageNet or face-specific datasets).
+	2. Without fine-tuning:
+		○ Extract embeddings from the transformer’s final layer.
+		○ Perform recognition via embedding similarity (same as CNN pipeline).
+	3. With fine-tuning:
+		○ Fine-tune the transformer using my smaller dataset (ORL) for adaptation to domain-specific conditions.
 
-Step 1:
+Step 3: Real-Time Face Recognition 
+(I am not sure how much time will the webcam hookup take, but I will definite give it a shot)
 
-Load the dataset:
+	1. Webcam Integration
+		○ Connect OpenCV to capture frames in real time.
+		○ Apply the CNN/ViT pipeline to extract embeddings for detected faces.
+		
+	2. Database of Embeddings
+		○ Maintain embeddings for myself and a set of known friends.
+		○ Perform real-time matching of incoming frames to stored embeddings.
+		
+	3. Robustness Evaluation
+		○ Test recognition accuracy under different conditions:
+			§ Frontal vs. non-frontal images
+			§ Varying lighting conditions
+			§ Partial occlusion (glasses, masks, etc.)
 
-import cv2
+Step 4: Evaluation
 
-Step 2:
-
-Map all images to their respective user IDs.
-
-This is already handled by the directory structure of the dataset.
-
-Step 3:
-
-Load a pretrained Haar Cascade model from OpenCV:
-haarcascade_frontalface_default.xml
-
-Initialize the detectMultiScale method from this classifier.
-
-Step 4:
-
-Use the detectMultiScale object to detect faces in each image.
-
-If detection is successful, crop and resize the face region to 100 × 100 pixels.
-
-	• Coordinates saved: (x, y, w, h)
-		○ (x, y) → top-left corner of the face
-		○ (w, h) → width and height from that corner
-
-Step 5:
-
-Split the 400 images randomly into training and test sets (90% / 10%).
-
-Initialize the recognizer:
-
-cv2.face.LBPHFaceRecognizer_create()
-
-Train (fine-tune) the recognizer with the training dataset.
-
-Step 6:
-
-Inference: Evaluate the model on the test dataset.
-
-Report the recognition accuracy.
+	1. Training/Testing Split
+		○ For large dataset: standard 80/20 split.
+		○ For ORL Faces: 90/10 split (to replicate classical pipeline).
+		
+	2. Metrics
+		○ Recognition accuracy
+		○ Embedding similarity thresholds (ROC, FAR/FRR)
+		○ Robustness tests with controlled variations
 
 
 
