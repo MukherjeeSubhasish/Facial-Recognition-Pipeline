@@ -74,27 +74,27 @@ Step 4: Evaluation
 
 'filename': 
 
-'/home/smukher5/.cache/huggingface/datasets/chronopt-research___cropped-vggface2-224/default/0.0.0/dc48caf49ea0de02988f83e2130e7fc52bc1bff8/cropped-vggface2-224-train-00000-of-00040.arrow'
+	'/home/smukher5/.cache/huggingface/datasets/chronopt-research___cropped-vggface2-224/default/0.0.0/dc48caf49ea0de02988f83e2130e7fc52bc1bff8/cropped-vggface2-224-train-00000-of-00040.arrow'
 
 
 citation:
 
-@misc{cao2018vggface2datasetrecognisingfaces,
-      title={VGGFace2: A dataset for recognising faces across pose and age}, 
-      author={Qiong Cao and Li Shen and Weidi Xie and Omkar M. Parkhi and Andrew Zisserman},
-      year={2018},
-      eprint={1710.08092},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/1710.08092}, 
-}
+	@misc{cao2018vggface2datasetrecognisingfaces,
+	      title={VGGFace2: A dataset for recognising faces across pose and age}, 
+	      author={Qiong Cao and Li Shen and Weidi Xie and Omkar M. Parkhi and Andrew Zisserman},
+	      year={2018},
+	      eprint={1710.08092},
+	      archivePrefix={arXiv},
+	      primaryClass={cs.CV},
+	      url={https://arxiv.org/abs/1710.08092}, 
+	}
 
 
 download website: 
 
-https://www.kaggle.com/datasets/hearfool/vggface2
+	https://www.kaggle.com/datasets/hearfool/vggface2
 
-https://huggingface.co/datasets/chronopt-research/cropped-vggface2-224
+	https://huggingface.co/datasets/chronopt-research/cropped-vggface2-224
 
 
 dataset details---->>>>
@@ -113,17 +113,17 @@ DatasetDict({
 
 dataset["train"][0] ---->>>>
 
-{'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=224x224 at 0x7F8AD8342170>, 'label': 1}
+	{'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=224x224 at 0x7F8AD8342170>, 'label': 1}
 
-dataset_size = 20GB
-
-8631 different 'labels' are there in the training set.
-
-500 different 'labels' are there in the validation set.
+	dataset_size = 20GB
+	
+	8631 different 'labels' are there in the training set.
+	
+	500 different 'labels' are there in the validation set.
 
 Observation:
 
-The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember some face instead of recognizing them through learned feature detection.
+	The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember some face instead of recognizing them through learned feature detection.
 
 
 Characterization of the samples-
