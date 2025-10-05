@@ -123,7 +123,9 @@ dataset["train"][0] ---->>>>
 
 Observation:
 
-	The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember some face instead of recognizing them through learned feature detection.
+	The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. 
+	But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember 
+	some face instead of recognizing them through learned feature detection.
 
 
 Characterization of the samples-
