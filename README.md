@@ -70,76 +70,92 @@ Step 4: Evaluation
 		○ Robustness tests with controlled variations
 
 
-
-
 ================================       Part2      ================================
 
-sources:
+'filename': 
 
-https://www.kaggle.com/datasets/tavarez/the-orl-database-for-training-and-testing
+'/home/smukher5/.cache/huggingface/datasets/chronopt-research___cropped-vggface2-224/default/0.0.0/dc48caf49ea0de02988f83e2130e7fc52bc1bff8/cropped-vggface2-224-train-00000-of-00040.arrow'
 
-https://git-disl.github.io/GTDLBench/datasets/
 
 citation:
 
-@INPROCEEDINGS{GTDLBenchICDCS, 
-    author={{Liu}, Ling and {Wu}, Yanzhao and {Wei}, Wenqi and {Cao}, Wenqi and {Sahin}, Semih and {Zhang}, Qi}, 
-    booktitle={2018 IEEE 38th International Conference on Distributed Computing Systems (ICDCS)}, 
-    title="{Benchmarking Deep Learning Frameworks: Design Considerations, Metrics and Beyond}",
-    year={2018},
-    pages={1258-1269}, 
-    doi={10.1109/ICDCS.2018.00125}, 
-    ISSN={2575-8411}, 
-    month={July},
+@misc{cao2018vggface2datasetrecognisingfaces,
+      title={VGGFace2: A dataset for recognising faces across pose and age}, 
+      author={Qiong Cao and Li Shen and Weidi Xie and Omkar M. Parkhi and Andrew Zisserman},
+      year={2018},
+      eprint={1710.08092},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/1710.08092}, 
 }
 
-@ARTICLE{GTDLBencharTSC,
-    author={Y. {Wu} and L. {Liu} and C. {Pu} and W. {Cao} and S. {Sahin} and W. {Wei} and Q. {Zhang}}, 
-    journal={IEEE Transactions on Services Computing}, 
-    title={A Comparative Measurement Study of Deep Learning as a Service Framework}, 
-    year={2019}, 
-    volume={}, 
-    number={}, 
-    pages={1-1}, 
-    keywords={Libraries;Parallel processing;Hardware;Training;Runtime;Deep learning;Task analysis;Deep Learning as a Service;Big Data;Deep Neural Networks;Accuracy}, 
-    doi={10.1109/TSC.2019.2928551}, 
-    ISSN={1939-1374}, 
-    month={},
-}
 
-@INPROCEEDINGS{GTDLBenchBigData, 
-    author={{Wu}, Yanzhao and and {Cao}, Wenqi and {Sahin}, Semih and {Liu}, Ling}, 
-    booktitle={2018 IEEE 38th International Conference on Big Data}, 
-    title="{Experimental Characterizations and Analysis of Deep Learning Frameworks}", 
-    year={2018},
-    month={December},
-}
+download website: 
 
-Total image count = 400
+https://www.kaggle.com/datasets/hearfool/vggface2
 
-Individuals count = 40
+https://huggingface.co/datasets/chronopt-research/cropped-vggface2-224
 
-Each person has 10 face samples, all of the 10 face images are kept in a separate directory. Like S1, S2, ..., S40
 
-For training dataset, I would take 6 images
+dataset details---->>>>
 
-For validation dataset, I would take 2 images
+DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 3138862
+    })
+    validation: Dataset({
+        features: ['image', 'label'],
+        num_rows: 169178
+    })
+})
 
-For test dataset, I would take 2 images
+dataset["train"][0] ---->>>>
 
-I need to make sure, all of the 40 human samples are in the 'train'/'validation'/ and 'test' dataset in exact 6:2:2 ratio. I need to randomize the dataset (seed=42 for reproducibility) before using for training/validation/testing. The model will not see the 'test' dataset during training. Therefore, the accuracy on the test dataset in inference should be unbiased.
+{'image': <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=224x224 at 0x7F8AD8342170>, 'label': 1}
 
-sample characteristics:
+dataset_size = 20GB
 
-resolution: 92 x 112
+8631 different 'labels' are there in the training set.
 
-sensors used: The ORL dataset consists of standard, visible-spectrum grayscale images of faces that were captured with a simple camera. No special or advanced sensors were used to create this classic dataset. 
+500 different 'labels' are there in the validation set.
 
-Slight variations in lighting. Images of the same person has some head rotation in different directions i.e. they are not facing the camera directly. 
+Observation:
+The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember some face instead of recognizing them through learned feature detection.
 
-IN some of the images the person is wearing a glass. However, not everyone is wearing a glass.
+Characterization of the samples-
 
-Mount open and mouth closed. I can sense different emotion. Anger-Smile etc.
 
-I have uploaded a baseline code. Your feedback will be appreciated.
+Image Size
 
+224×224 pixels
+
+
+Color Channels
+
+RGB (3-channel, visible light)
+
+
+Source
+
+Web photographs (Google Image Search)
+
+
+Sensor Type
+
+Varies (consumer-grade digital cameras, smartphones)
+
+
+Illumination
+
+Mixed (daylight, indoor, flash, shadow)
+
+
+Ambient Conditions
+
+Uncontrolled, highly diverse
+
+
+Labels
+
+Unique identity IDs (non-overlapping across splits)
