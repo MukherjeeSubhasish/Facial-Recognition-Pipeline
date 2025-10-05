@@ -128,36 +128,36 @@ The "train" and the "test" dataset do not have overlapping 'labels'. First, it f
 
 Characterization of the samples-
 
-Image Size-
-
-224×224 pixels
-
-
-Color Channels-
-
-RGB (3-channel, visible light)
-
-
-Source-
-
-Web photographs (Google Image Search)
-
-
-Sensor Type-
-
-Varies (consumer-grade digital cameras, smartphones)
-
-
-Illumination-
-
-Mixed (daylight, indoor, flash, shadow)
-
-
-Ambient Conditions-
-
-Uncontrolled, highly diverse
-
-
-Labels-
-
-Unique identity IDs (non-overlapping across splits)
+	Image Size-
+	
+	224×224 pixels
+	
+	
+	Color Channels-
+	
+	RGB (3-channel, visible light)
+	
+	
+	Source-
+	
+	Web photographs (Google Image Search)
+	
+	
+	Sensor Type-
+	
+	Varies (consumer-grade digital cameras, smartphones)
+	
+	
+	Illumination-
+	
+	Mixed (daylight, indoor, flash, shadow)
+	
+	
+	Ambient Conditions-
+	
+	Uncontrolled, highly diverse
+	
+	
+	Labels-
+	
+	Unique identity IDs (non-overlapping across splits)
