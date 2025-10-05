@@ -70,7 +70,7 @@ Step 4: Evaluation
 		○ Robustness tests with controlled variations
 
 
-==============       DATA ACQUISION AND PREPARATION      ==================
+==============       DATA ACQUISITION AND PREPARATION      ==================
 
 'filename': 
 
