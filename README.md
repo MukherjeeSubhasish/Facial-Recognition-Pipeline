@@ -122,10 +122,11 @@ dataset_size = 20GB
 500 different 'labels' are there in the validation set.
 
 Observation:
+
 The "train" and the "test" dataset do not have overlapping 'labels'. First, it felt like an error. But, then I realized, if the 'train' and 'test' dataset overlaps, the model can simply remember some face instead of recognizing them through learned feature detection.
 
-Characterization of the samples-
 
+Characterization of the samples-
 
 Image Size
 
