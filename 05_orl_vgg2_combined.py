@@ -6,7 +6,7 @@ from torchvision import transforms
 from torch.utils.data import DataLoader
 
 # -----------------------------
-# 1️⃣ Model definition
+# Model definition
 # -----------------------------
 class ORL_CNN_FeatureExtractor(nn.Module):
     def __init__(self):
@@ -27,17 +27,17 @@ class ORL_CNN_FeatureExtractor(nn.Module):
 
 
 # -----------------------------
-# 2️⃣ Load pretrained (feature-only) weights
+# Load pretrained (feature-only) weights
 # -----------------------------
 model = ORL_CNN_FeatureExtractor()
 state_dict = torch.load("orl_cnn_features.pth", map_location="cpu")
 model.load_state_dict(state_dict)
 model.eval()
-print("✅ Loaded feature extractor weights successfully!")
+print("Loaded feature extractor weights successfully!")
 
 
 # -----------------------------
-# 3️⃣ Load & preprocess VGGFace2
+# Load & preprocess VGGFace2
 # -----------------------------
 dataset = load_dataset("chronopt-research/cropped-vggface2-224")
 
@@ -53,11 +53,11 @@ def transform_batch(examples):
     return examples
 
 dataset = dataset.with_transform(transform_batch)
-print("✅ VGGFace2 dataset preprocessing ready for the ORL CNN feature extractor.")
+print("VGGFace2 dataset preprocessing ready for the ORL CNN feature extractor.")
 
 
 # -----------------------------
-# 4️⃣ DataLoader with custom collate_fn
+# DataLoader with custom collate_fn
 # -----------------------------
 def collate_fn(batch):
     # stack tensors from "pixel_values" field
@@ -69,7 +69,7 @@ loader = DataLoader(dataset["train"], batch_size=8096, shuffle=False, collate_fn
 
 
 # -----------------------------
-# 5️⃣ Extract embeddings
+# Extract embeddings
 # -----------------------------
 all_features = []
 model.eval()
@@ -80,8 +80,8 @@ with torch.no_grad():
         all_features.append(feats)
 
 features = torch.cat(all_features, dim=0)
-print("✅ Extracted features shape:", features.shape)
+print("Extracted features shape:", features.shape)
 
 # Optionally save for later use
 torch.save(features, "vggface2_orl_features.pt")
-print("💾 Saved features to vggface2_orl_features.pt")
+print("Saved features to vggface2_orl_features.pt")
