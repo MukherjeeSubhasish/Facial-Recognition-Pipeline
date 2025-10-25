@@ -206,3 +206,5 @@ Data preprocessing and justification——
 	We can convert every image into standardized 128×128 grayscale tensors with values scaled to [-1, 1], which is optimal for CNN input and training stability.
 
 
+<img width="1418" height="1022" alt="image" src="https://github.com/user-attachments/assets/a5dfc5ae-b964-4eba-a1cf-8f96031aa533" />
+
