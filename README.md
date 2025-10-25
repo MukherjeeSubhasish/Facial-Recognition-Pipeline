@@ -205,6 +205,30 @@ Data preprocessing and justification——
 	Summary:
 	We can convert every image into standardized 128×128 grayscale tensors with values scaled to [-1, 1], which is optimal for CNN input and training stability.
 
+PCA illustrations——
 
-<img width="1418" height="1022" alt="image" src="https://github.com/user-attachments/assets/a5dfc5ae-b964-4eba-a1cf-8f96031aa533" />
+	 1. What Each Point Represents?
+		• Each dot in the plot corresponds to one face image from the ORL dataset.
+		• The position of the dot is determined by the two most important principal components (PC1 and PC2), which are new axes capturing most of the variance (differences) in the images.
+	
+	 2. What the Colors Mean?
+		• Each color represents one class label (a different person’s face).
+		• In the original dataset, we have 40 people × 10 images each, so 40 unique classes.
+		• The colorbar on the right shows which color corresponds to which class index (0–39).
+	We can see eight distinct colors, it means only a subset of the classes (e.g., 8 persons × 5 images each) was visualized.
+	
+	 3. Analysis—
+		• Principal Component 1 (x-axis): captures the direction of greatest variation among all faces.
+			○ Images far apart along this axis differ the most in terms of key facial features.
+		• Principal Component 2 (y-axis): captures the next most significant variation (independent of PC1).
+	So the scatter plot shows how faces are distributed according to the two strongest factors of visual difference.
+	
+	 4. What Clusters Mean—
+		• If points of the same color are close together, it means those images (same person) are visually similar — the PCA has captured consistent facial identity patterns.
+		• If colors overlap heavily, that means some faces share similar features (maybe— pose, expression, lighting), making them harder to distinguish linearly.
+	So:
+		• Tight, well-separated clusters → dataset is easily separable by class (good for classification).
+		• Overlapping clusters → more difficult dataset, possibly needs deeper nonlinear methods (CNN, transformers etc.) to separate classes.
+	
+
 
