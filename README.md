@@ -232,7 +232,7 @@ PCA illustrations/ data visualizations——
 
 Run command——
 
-	python <filename>
+	python 07_orl_pca.py
 
 	outputs are stored in "pca_visualizations" directory and "visualized_samples" directory
 
