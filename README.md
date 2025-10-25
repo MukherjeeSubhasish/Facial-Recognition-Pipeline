@@ -172,38 +172,37 @@ Characterization of the samples-
 
 Data preprocessing and justification——
 
-task1— A list of the methods already applied for data pre-processing and feature extraction
 
-1. transforms.Grayscale(num_output_channels=1)
-	• Purpose: Ensures that every image is converted to grayscale (single channel).
-	• Why:
-		○ Some datasets or models might contain RGB (3 channels), while CNN expects single-channel input.
-		○ Converting to grayscale simplifies computation and reduces parameters if color information is unnecessary.
-	• Effect: Each pixel now has one intensity value instead of three (R, G, B).
+	1. transforms.Grayscale(num_output_channels=1)
+		• Purpose: Ensures that every image is converted to grayscale (single channel).
+		• Why:
+			○ Some datasets or models might contain RGB (3 channels), while CNN expects single-channel input.
+			○ Converting to grayscale simplifies computation and reduces parameters if color information is unnecessary.
+		• Effect: Each pixel now has one intensity value instead of three (R, G, B).
 
-3. transforms.Resize((128, 128))
-	• Purpose: Resizes all images to a uniform 128×128 pixels.
-	• Why:
-		○ Neural networks require a consistent input size.
-		○ Makes batching possible and reduces computational cost if the original images are large.
-	• Effect: Every image now has the same spatial dimensions, suitable for feeding into CNN.
+	2. transforms.Resize((128, 128))
+		• Purpose: Resizes all images to a uniform 128×128 pixels.
+		• Why:
+			○ Neural networks require a consistent input size.
+			○ Makes batching possible and reduces computational cost if the original images are large.
+		• Effect: Every image now has the same spatial dimensions, suitable for feeding into CNN.
 
-4. transforms.ToTensor()
-	• Purpose: Converts the PIL image or NumPy array into a PyTorch tensor.
-	• Why:
-		○ Neural networks in PyTorch work with tensors, not images.
-		○ Automatically scales pixel values from [0, 255] → [0.0, 1.0].
-	• Effect:
-		○ Data type changes to torch.FloatTensor.
+	3. transforms.ToTensor()
+		• Purpose: Converts the PIL image or NumPy array into a PyTorch tensor.
+		• Why:
+			○ Neural networks in PyTorch work with tensors, not images.
+			○ Automatically scales pixel values from [0, 255] → [0.0, 1.0].
+		• Effect:
+			○ Data type changes to torch.FloatTensor.
 
-5. transforms.Normalize(mean=[0.5], std=[0.5])
-	• Purpose: Normalizes the tensor so that pixel values are centered around 0.
-	• Effect:
-		○ Since input values are in [0, 1], this transforms them to approximately [-1, 1].
-	• Why:
-		○ Normalization helps the model converge faster and maintain stable gradients during training.
+	4. transforms.Normalize(mean=[0.5], std=[0.5])
+		• Purpose: Normalizes the tensor so that pixel values are centered around 0.
+		• Effect:
+			○ Since input values are in [0, 1], this transforms them to approximately [-1, 1].
+		• Why:
+			○ Normalization helps the model converge faster and maintain stable gradients during training.
 
-Summary:
-We can convert every image into standardized 128×128 grayscale tensors with values scaled to [-1, 1], which is optimal for CNN input and training stability.
+	Summary:
+	We can convert every image into standardized 128×128 grayscale tensors with values scaled to [-1, 1], which is optimal for CNN input and training stability.
 
 
