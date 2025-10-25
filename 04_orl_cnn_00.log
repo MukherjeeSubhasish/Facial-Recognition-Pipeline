@@ -1,0 +1,23 @@
+(cv1p1) [smukher5@mns00 computer_vision_project]$  cd /home/smukher5/computer_vision_project ; /usr/bin/env /afs/crc.nd.edu/user/s/smukher5/.conda/envs/cv1p1/bin/python /afs/crc.nd.edu/user/s/smukher5/.vscode-server/extensions/ms-python.debugpy-2025.14.1-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 37711 -- /home/smukher5/computer_vision_project/04_orl_cnn.py 
+Epoch [1/20], Loss: 3.9119
+Epoch [2/20], Loss: 3.4831
+Epoch [3/20], Loss: 2.7358
+Epoch [4/20], Loss: 1.7826
+Epoch [5/20], Loss: 0.9979
+Epoch [6/20], Loss: 0.6690
+Epoch [7/20], Loss: 0.4461
+Epoch [8/20], Loss: 0.3508
+Epoch [9/20], Loss: 0.2953
+Epoch [10/20], Loss: 0.2590
+Epoch [11/20], Loss: 0.1825
+Epoch [12/20], Loss: 0.2235
+Epoch [13/20], Loss: 0.1226
+Epoch [14/20], Loss: 0.2169
+Epoch [15/20], Loss: 0.1558
+Epoch [16/20], Loss: 0.1203
+Epoch [17/20], Loss: 0.0818
+Epoch [18/20], Loss: 0.0832
+Epoch [19/20], Loss: 0.0706
+Epoch [20/20], Loss: 0.0992
+
+Validation Accuracy: 97.50%
