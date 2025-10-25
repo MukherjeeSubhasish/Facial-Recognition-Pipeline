@@ -229,6 +229,14 @@ PCA illustrations——
 	So:
 		• Tight, well-separated clusters → dataset is easily separable by class (good for classification).
 		• Overlapping clusters → more difficult dataset, possibly needs deeper nonlinear methods (CNN, transformers etc.) to separate classes.
+
+Run command——
+
+	python <filename>
+
+	outputs are stored in "pca_visualizations" directory and "visualized_samples" directory
+
+	env requirements are stored in requirements.txt file
 	
 
 
