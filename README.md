@@ -205,7 +205,7 @@ Data preprocessing and justification——
 	Summary:
 	We can convert every image into standardized 128×128 grayscale tensors with values scaled to [-1, 1], which is optimal for CNN input and training stability.
 
-PCA illustrations——
+PCA illustrations/ data visualizations——
 
 	 1. What Each Point Represents?
 		• Each dot in the plot corresponds to one face image from the ORL dataset.
@@ -237,6 +237,8 @@ Run command——
 	outputs are stored in "pca_visualizations" directory and "visualized_samples" directory
 
 	env requirements are stored in requirements.txt file
+
+	I haven't uploaded the VGGFace2 dataset because the size is very big. All the scripts with "orl" dataset should run properly. If you get any error, please let me know. I would show the results from my laptop then.
 	
 
 
