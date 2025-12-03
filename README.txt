@@ -279,6 +279,8 @@ How to improve accuracy further for the test dataset?
 Since validation class = 500, therefore random chance leads us to 0.2% hit rate. I have observed as the number of classes increases as I go from smaller dataset to larger dataset the accuracy drops from 71% to 15%. This can be improved with higher epochs, higher embedding size, finetuning the "Positive_prob" variable from (0,1) range, using complex models, using different loss functions like 'triplet loss' etc. Due, to the massive size of the entire dataset (3M) I could only do one full dataset simulation with 5epochs only since it took almost a day to complete.
 For sanity check I did one supervised learning experiment where I split the train dataset into two parts-training and validation and used the same model, to make sure that my training pipeline is NOT broken. It gave me 96% accuracy on that experiment showing that the model is learning properly.
 
-	
+# ----------------------------------------------------------------------------------
+TASK3 dataset PCA/t-SNE analysis work(pending) can be found in the FINAL/task3 directory.
+# ----------------------------------------------------------------------------------
 
 
