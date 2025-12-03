@@ -244,9 +244,9 @@ Run command——
 
 
 # ------------------------------------------------------------------
-Final Report
-# ------------------------------------------------------------------
 Full Technical Report (Task 4)
+# ------------------------------------------------------------------
+
 Contrastive Learning for Face Embeddings Using ResNet50 and VGGFace2 (Cropped)
 This project focuses on learning discriminative facial embeddings using a contrastive-learning–based approach on the large-scale cropped_vggface2_224 dataset available from HuggingFace. The primary objective is not to perform conventional supervised classification but rather to learn a metric space in which images of the same individual are positioned close together while images of different individuals are pushed farther apart. This form of learning—driven by CosineEmbeddingLoss—allows the model to generalize to unseen identities, making it suitable for identity discrimination and similarity-based tasks. The dataset itself is substantial, approximately 20 GB, containing over 3 million training images, which introduces practical challenges associated with memory usage, storage, and training duration. In this work, the entire pipeline—from data loading to embedding generation, clustering evaluation, and visualization—is executed on an NVIDIA H100 GPU, leveraging its high computational throughput and memory bandwidth.
 
