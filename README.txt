@@ -273,6 +273,12 @@ How to run the file?
 To run this project, you will need Python 3.8 or later along with PyTorch, torchvision, HuggingFace datasets, scikit-learn, matplotlib, and SciPy. The dataset used for this project—chronopt-research/cropped-vggface2-224—is approximately 20 GB, so downloading it may take some time depending on your download speed. Once installed, please ensure that you have sufficient GPU memory; the experiments here were conducted on an NVIDIA H100 GPU using a batch size of 384, which is the maximum batch size that fits without causing out-of-memory errors. Running the script will automatically load the dataset, preprocess images using resizing, centercropping, normalization, construct positive and negative training pairs for contrastive learning, fine-tune a ResNet50 model for 5 epochs, extract embeddings from the validation set, run KMeans clustering to estimate identity-separation accuracy, and generate t-SNE plots demonstrating the structure of the embedding space. The script also saves training logs and the fine-tuned model checkpoint for future use. To execute the pipeline, simply run the Python script with below command. Log files containing training progress, validation accuracy, and timing information are provided for convenience and reproducibility in the "FINAL" directory.
 
 python FINAL/main.py
+
+
+How to improve accuracy further for the test dataset? 
+Since validation class = 500, therefore random chance leads us to 0.2% hit rate. I have observed as the number of classes increases as I go from smaller dataset to larger dataset the accuracy drops from 71% to 15%. This can be improved with higher epochs, higher embedding size, finetuning the "Positive_prob" variable from (0,1) range, using complex models, using different loss functions like 'triplet loss' etc. Due, to the massive size of the entire dataset (3M) I could only do one full dataset simulation with 5epochs only since it took almost a day to complete.
+For sanity check I did one supervised learning experiment where I split the train dataset into two parts-training and validation and used the same model, to make sure that my training pipeline is NOT broken. It gave me 96% accuracy on that experiment showing that the model is learning properly.
+
 	
 
 
