@@ -1,0 +1,36 @@
+(base) [smukher5@mns00 computer_vision_project_v_01]$  cd /home/smukher5/computer_vision_project_v_01 ; /usr/bin/env /afs/crc.nd.edu/user/s/smukher5/.conda/envs/cv1p1/bin/python /afs/crc.nd.edu/user/s/smukher5/.vscode-server/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 48227 -- /home/smukher5/computer_vision_project_v_01/train_v_07.py 
+Using device: cuda
+Resolving data files: 100%|█████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 19982.39it/s]
+Resolving data files: 100%|█████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 24378.40it/s]
+Loading dataset shards: 100%|█████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 194.46it/s]
+Train full size: 3138862, using first 1% -> 31388
+Val full size:   169178, using first 1% -> 1691
+Unique identities in val subset: 6
+Epoch [1/5] Step [50/245] Loss: 0.2010
+Epoch [1/5] Step [100/245] Loss: 0.1478
+Epoch [1/5] Step [150/245] Loss: 0.1300
+Epoch [1/5] Step [200/245] Loss: 0.1271
+Epoch [2/5] Step [50/245] Loss: 0.1125
+Epoch [2/5] Step [100/245] Loss: 0.1071
+Epoch [2/5] Step [150/245] Loss: 0.1021
+Epoch [2/5] Step [200/245] Loss: 0.0992
+Epoch [3/5] Step [50/245] Loss: 0.0943
+Epoch [3/5] Step [100/245] Loss: 0.0871
+Epoch [3/5] Step [150/245] Loss: 0.0862
+Epoch [3/5] Step [200/245] Loss: 0.0870
+Epoch [4/5] Step [50/245] Loss: 0.0816
+Epoch [4/5] Step [100/245] Loss: 0.0771
+Epoch [4/5] Step [150/245] Loss: 0.0741
+Epoch [4/5] Step [200/245] Loss: 0.0769
+Epoch [5/5] Step [50/245] Loss: 0.0696
+Epoch [5/5] Step [100/245] Loss: 0.0693
+Epoch [5/5] Step [150/245] Loss: 0.0674
+Epoch [5/5] Step [200/245] Loss: 0.0643
+Training finished.
+Validation embeddings shape: (1691, 1024)
+Validation labels shape: (1691,)
+Number of unique identities in val subset: 6
+Clustering accuracy on first 1% val subset: 71.38%
+
+# ------------------------------------------------------------------
+comments: The training is done only on 1% of the entire dataset.
