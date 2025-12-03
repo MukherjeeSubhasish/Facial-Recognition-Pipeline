@@ -1,0 +1,30 @@
+(cv1p1) [smukher5@mns00 computer_vision_project_v_01]$  cd /home/smukher5/computer_vision_project_v_01 ; /usr/bin/env /afs/crc.nd.edu/user/s/smukher5/.conda/envs/cv1p1/bin/python /afs/crc.nd.edu/user/s/smukher5/.vscode-server/extensions/ms-python.debugpy-2025.16.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher 43849 -- /home/smukher5/computer_vision_project_v_01/train_v_08_arcface.py 
+Using device: cuda
+Resolving data files: 100%|████████████████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 21448.75it/s]
+Resolving data files: 100%|████████████████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 24283.13it/s]
+Loading dataset shards: 100%|████████████████████████████████████████████████████████████████████████| 40/40 [00:00<00:00, 248.05it/s]
+Train size: 156943
+Val size:   1691
+ArcFace classes: 429
+Epoch [1/3] Step [50/306] Loss: 20.5352
+Epoch [1/3] Step [100/306] Loss: 20.2939
+Epoch [1/3] Step [150/306] Loss: 20.1492
+Epoch [1/3] Step [200/306] Loss: 19.9911
+Epoch [1/3] Step [250/306] Loss: 19.7515
+Epoch [1/3] Step [300/306] Loss: 19.4709
+Epoch [2/3] Step [50/306] Loss: 19.0315
+Epoch [2/3] Step [100/306] Loss: 18.7223
+Epoch [2/3] Step [150/306] Loss: 18.3863
+Epoch [2/3] Step [200/306] Loss: 18.0459
+Epoch [2/3] Step [250/306] Loss: 17.6815
+Epoch [2/3] Step [300/306] Loss: 17.3342
+Epoch [3/3] Step [50/306] Loss: 16.7439
+Epoch [3/3] Step [100/306] Loss: 16.3657
+Epoch [3/3] Step [150/306] Loss: 15.9474
+Epoch [3/3] Step [200/306] Loss: 15.4804
+Epoch [3/3] Step [250/306] Loss: 15.0527
+Epoch [3/3] Step [300/306] Loss: 14.5912
+ArcFace Training finished.
+Validation embeddings shape: (1691, 1024)
+Clustering accuracy: 80.84%
+Saved ArcFace plots.
