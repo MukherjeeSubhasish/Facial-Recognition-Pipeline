@@ -282,7 +282,9 @@ For sanity check I did one supervised learning experiment where I split the trai
 The code and log file are uploaded in the "FINAL" directory— "sanity_supervised_learning.py" and "sanity_supervised_learning.log"
 
 # ----------------------------------------------------------------------------------
-TASK3 dataset PCA/t-SNE analysis work(pending) can be found in the FINAL/task3 directory.
+TASK3 dataset work update—
+You wanted me to add a "webcam" pipeline. That code is uploaded "08_webcam.py" on the main repo and the output is shown in the "webcam_output" directory.
+PCA/t-SNE analysis work can be found in the FINAL/task3 directory.
 # ----------------------------------------------------------------------------------
 
 
