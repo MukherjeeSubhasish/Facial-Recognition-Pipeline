@@ -287,4 +287,8 @@ You wanted me to add a "webcam" pipeline. That code is uploaded "08_webcam.py" o
 PCA/t-SNE analysis work can be found in the FINAL/task3 directory.
 # ----------------------------------------------------------------------------------
 
+Note: 
+By adding ArcFace as the final head of the model network (embedding output of the resnet model goes to the arcface layer as input), the clustering of the similar classes were improved and 80% accuracy is obtained for a subset of the VGGFace2 dataset. The t_SNE plots with below filenames are shown as example in the "FINAL" directory—
+tsne_kmeans_labels_arcface.png
+tsne_true_labels_arcface.png
 
