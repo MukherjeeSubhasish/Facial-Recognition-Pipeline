@@ -289,7 +289,7 @@ PCA/t-SNE analysis work can be found in the FINAL/task3 directory.
 # ----------------------------------------------------------------------------------
 
 Note: 
-By adding ArcFace as the final head of the model network (embedding output of the resnet model goes to the arcface layer as input), the clustering of the similar classes were improved and 79.02% accuracy is obtained for the complete VGGFace2 dataset using only 3 epochs. The t_SNE plots with below filenames are shown as example in the below directory. The final source code and the output log files are also there—
+By adding ArcFace as the final head of the model network (embedding output of the resnet model goes to the arcface layer as input), the clustering of the similar classes were improved and 79.02% accuracy is obtained for the complete VGGFace2 dataset using only 3 epochs. The t_SNE plots with below filenames are shown as example in the below directory. The final source code and the output log files are also there with README file—
 FINAL/ArcFace_full_dataset/
 ----------------------------------------------------------|
 python FINAL/ArcFace_full_dataset/train_v_08_arcface.py   |
