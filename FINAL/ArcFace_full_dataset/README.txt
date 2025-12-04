@@ -1,1 +1,1 @@
-.
+The python code in this repo shows highest accuracy obtained on the test-dataset. Due to resource/time constraint I could only use 3 epochs. But, it is clear from the log file that, with higher epochs the model would perform even better. I have uploaded the plots for your reference too. Please let me know if you have any questions.
