@@ -31,4 +31,4 @@ To run this project, you will need Python 3.8 or later along with PyTorch, torch
 To execute the pipeline, simply run the Python script with below command. Log files containing training progress, validation accuracy, and timing information are provided for convenience and reproducibility in the "FINAL" directory.
 
 ```bash
-python FINAL/sanity_supervised_learning.py |
+python FINAL/sanity_supervised_learning.py
