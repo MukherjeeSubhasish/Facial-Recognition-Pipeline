@@ -48,6 +48,32 @@ python FINAL/sanity_supervised_learning.py
 
 # Part5
 
+## Description of the test dataset
+
+The test database used in this project is the validation split of the VGGFace2 (cropped-224) dataset, downloaded from HuggingFace.
+
+Size of the test database:
+
+* Approximately 169,178 images
+
+* 500 unique identities
+
+Image properties:
+
+* Resolution: 224 × 224
+
+* Color: RGB
+
+* Source: Web images (uncontrolled conditions)
+
+## Why the 'test dataset' is significantly different?
+
+* Test identities were never seen during training.
+
+* Faces include different poses, ages, lighting conditions, and image quality distributions.
+
+* The model has no label-level supervision for test identities.
+
 ## Ideas for improvements
 
 I got 79% accuracy for the complete 'test' dataset with 169k images and 500 unseen labels.
