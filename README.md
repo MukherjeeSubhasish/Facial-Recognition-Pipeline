@@ -28,7 +28,7 @@ Result: ~96% validation accuracy
 
 This confirms that the training pipeline, preprocessing, and model implementation are correct. It's important to note that the model knows the output labels for the 'validation' set, because, it has already seen these identities in the 'train' dataset. This makes the validaiton task a lot easier.
 
-## Ideas for improvements.
+## Ideas for improvements
 
 Since, the 'validation' set accuracy is already high, the explanation below is written for unseen 'test' datasets where the identities are new to the model. I got 79% accuracy for the 'test' dataset.
 
@@ -62,7 +62,7 @@ How accuracy might be improved?
 
 Overall, the achieved performance is reasonable given the open-set setting, and results clearly improve with stronger metric-learning objectives.
 
-## How to run the code for train-validation split? This is the classification task on the seen labels. Unseen label experiment will be explained in the TASK5.
+## How to run the code for train-validation split? This is the classification task on the seen labels. Unseen label experiment will be explained in the TASK5
 
 To run this project, you will need Python 3.8 or later along with PyTorch, torchvision, HuggingFace datasets, scikit-learn, matplotlib, and SciPy. The dataset used for this project—chronopt-research/cropped-vggface2-224—is approximately 20 GB, so downloading it may take some time depending on your download speed. Once installed, please ensure that you have sufficient GPU memory; the experiments here were conducted on an NVIDIA H100 GPU using a batch size of 384, which is the maximum batch size that fits without causing out-of-memory errors. Running the script will automatically load the dataset, preprocess images using resizing, centercropping, normalization, construct positive and negative training pairs for contrastive learning, fine-tune a ResNet50 model for 5 epochs, extract embeddings from the validation set, run KMeans clustering to estimate identity-separation accuracy, and generate t-SNE plots demonstrating the structure of the embedding space. The script also saves training logs and the fine-tuned model checkpoint for future use. 
 
