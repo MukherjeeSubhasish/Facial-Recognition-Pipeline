@@ -30,37 +30,11 @@ This confirms that the training pipeline, preprocessing, and model implementatio
 
 ## Ideas for improvements
 
-Since, the 'validation' set accuracy is already high, the explanation below is written for unseen 'test' datasets where the identities are new to the model. I got 79% accuracy for the 'test' dataset.
+I saw a high 'validation' accuracy of 96% when I split the train dataset into 'train' and 'validation' such that, the problem statement is converted into a supervised learning. Although, our main goal is to test this model on unseen labels, this exercise was done as a sanity check. If I would like to improve the accuracy further, I would experiment with the following-
 
-As the number of identities increases, the embedding space must separate more classes.
-
-Random chance accuracy drops sharply (≈0.2% for 500 classes).
-
-Contrastive learning without explicit class supervision is inherently harder than supervised classification.
-
-Thus, lower accuracy at scale is expected and not a failure.
-
-Key Observations
-
-* Increasing embedding dimension from 128 → 1024 improved accuracy by ~7%.
-
-* Positive/negative pair balance is critical:
-
-* Reducing pos_prob from 0.5 to 0.1 caused ~7% accuracy drop.
-
-* ArcFace significantly improves inter-class separation compared to plain contrastive loss.
-
-How accuracy might be improved?
-
-* Train for more epochs (currently limited by dataset size and compute time).
-
-* Add stronger data augmentations (RandomResizedCrop, HorizontalFlip).
-
-* Explore harder losses (Triplet Loss, harder negative mining).
-
-* Further tuning of embedding dimension and sampling strategy.
-
-Overall, the achieved performance is reasonable given the open-set setting, and results clearly improve with stronger metric-learning objectives.
+* Increase the dimension of the embeddings. Currenly, I have tried  with 1024 as the maximum embedding dimension and it gave me the best response so far.
+* Train for more epochs for better learning. I did not see a saturation of the accuracy metrics while training, but since the dataset is quite big, I eventually had to stop at a point.
+* Increase batch size if possible. Currrently, I am limited by the GPU memory capacity. This would help me with faster training.
 
 ## How to run the code for train-validation split? This is the classification task on the seen labels. Unseen label experiment will be explained in the TASK5
 
@@ -76,7 +50,7 @@ python FINAL/sanity_supervised_learning.py
 
 ## Ideas for improvements
 
-Since, the 'validation' set accuracy is already high, the explanation below is written for unseen 'test' datasets where the identities are new to the model. I got 79% accuracy for the 'test' dataset.
+I got 79% accuracy for the complete 'test' dataset with 169k images and 500 unseen labels.
 
 As the number of identities increases, the embedding space must separate more classes.
 
