@@ -75,7 +75,7 @@ Image properties:
 * The model has no label-level supervision for test identities.
 
 ## Test Accuracy
-The accuracy on the unseen 'test' dataset is 79.02%. The output script can be run with the following command and uses same environment as explained in the part4. 
+The accuracy on the unseen 'test' dataset is 79.02%. The output script can be run with the following command and uses same environment as explained in the part4. The 'log' files and output 'plots' can be found in the same directory- "FINAL/ArcFace_full_dataset/"
 
 ```bash
 FINAL/ArcFace_full_dataset/train_v_08_arcface.py
