@@ -74,19 +74,26 @@ Image properties:
 
 * The model has no label-level supervision for test identities.
 
+## Test Accuracy
+The accuracy on the unseen 'test' dataset is 79.02%. The output script can be run with the following command and uses same environment as explained in the part4. 
+
+```bash
+FINAL/ArcFace_full_dataset/train_v_08_arcface.py
+```
+
 ## Ideas for improvements
 
 I got 79% accuracy for the complete 'test' dataset with 169k images and 500 unseen labels.
 
 As the number of identities increases, the embedding space must separate more classes.
 
-Random chance accuracy drops sharply (≈0.2% for 500 classes).
+Random chance accuracy drops sharply (1/500 ≈ 0.2% for 500 classes).
 
 Contrastive learning without explicit class supervision is inherently harder than supervised classification.
 
 Thus, lower accuracy at scale is expected and not a failure.
 
-Key Observations
+Key Observations-
 
 * Increasing embedding dimension from 128 → 1024 improved accuracy by ~7%.
 
@@ -102,7 +109,7 @@ How accuracy might be improved?
 
 * Add stronger data augmentations (RandomResizedCrop, HorizontalFlip).
 
-* Explore harder losses (Triplet Loss, harder negative mining).
+* Explore other loss functions (Triplet Loss, harder negative mining).
 
 * Further tuning of embedding dimension and sampling strategy.
 
