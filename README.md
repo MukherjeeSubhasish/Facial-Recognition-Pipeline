@@ -8,11 +8,11 @@ Face recognition is an open-set problem, where identities in the validation/test
 
 Instead, the model learns a facial embedding space using contrastive learning (CosineEmbeddingLoss) and ArcFace. In this setup:
 
-Images of the same identity are pulled closer in embedding space.
+* Images of the same identity are pulled closer in embedding space.
 
-Images of different identities are pushed farther apart.
+* Images of different identities are pushed farther apart.
 
-Recognition is performed via similarity search, not label prediction.
+* Recognition is performed via similarity search, not label prediction.
 
 This approach is consistent with state-of-the-art systems such as FaceNet, ArcFace, and CosFace, and is fundamentally better suited for identity generalization than a fixed classifier head.
 
