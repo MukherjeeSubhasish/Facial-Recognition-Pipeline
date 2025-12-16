@@ -70,3 +70,40 @@ To execute the pipeline, simply run the Python script with below command. Log fi
 
 ```bash
 python FINAL/sanity_supervised_learning.py
+```
+
+# Part5
+
+## Ideas for improvements
+
+Since, the 'validation' set accuracy is already high, the explanation below is written for unseen 'test' datasets where the identities are new to the model. I got 79% accuracy for the 'test' dataset.
+
+As the number of identities increases, the embedding space must separate more classes.
+
+Random chance accuracy drops sharply (≈0.2% for 500 classes).
+
+Contrastive learning without explicit class supervision is inherently harder than supervised classification.
+
+Thus, lower accuracy at scale is expected and not a failure.
+
+Key Observations
+
+* Increasing embedding dimension from 128 → 1024 improved accuracy by ~7%.
+
+* Positive/negative pair balance is critical:
+
+* Reducing pos_prob from 0.5 to 0.1 caused ~7% accuracy drop.
+
+* ArcFace significantly improves inter-class separation compared to plain contrastive loss.
+
+How accuracy might be improved?
+
+* Train for more epochs (currently limited by dataset size and compute time).
+
+* Add stronger data augmentations (RandomResizedCrop, HorizontalFlip).
+
+* Explore harder losses (Triplet Loss, harder negative mining).
+
+* Further tuning of embedding dimension and sampling strategy.
+
+Overall, the achieved performance is reasonable given the open-set setting, and results clearly improve with stronger metric-learning objectives.
