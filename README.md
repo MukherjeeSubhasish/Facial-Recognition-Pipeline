@@ -20,9 +20,47 @@ A supervised softmax classifier was used only as a sanity check, not as the fina
 
 ## A classification accuracy achieved on the training and validation subsets.
 
+Setup: Train/validation split within the training identities
 
-## A short commentary related to the observed accuracy and ideas for improvements.
+Model: Same ResNet50 backbone
 
+Result: ~96% validation accuracy
+
+This confirms that the training pipeline, preprocessing, and model implementation are correct. It's important to note that the model knows the output labels for the 'validation' set, because, it has already seen these identities in the 'train' dataset. This makes the validaiton task a lot easier.
+
+## Ideas for improvements.
+
+Since, the 'validation' set accuracy is already high, the explanation below is written for unseen 'test' datasets where the identities are new to the model. I got 79% accuracy for the 'test' dataset.
+
+As the number of identities increases, the embedding space must separate more classes.
+
+Random chance accuracy drops sharply (≈0.2% for 500 classes).
+
+Contrastive learning without explicit class supervision is inherently harder than supervised classification.
+
+Thus, lower accuracy at scale is expected and not a failure.
+
+Key Observations
+
+* Increasing embedding dimension from 128 → 1024 improved accuracy by ~7%.
+
+* Positive/negative pair balance is critical:
+
+* Reducing pos_prob from 0.5 to 0.1 caused ~7% accuracy drop.
+
+* ArcFace significantly improves inter-class separation compared to plain contrastive loss.
+
+How accuracy might be improved?
+
+* Train for more epochs (currently limited by dataset size and compute time).
+
+* Add stronger data augmentations (RandomResizedCrop, HorizontalFlip).
+
+* Explore harder losses (Triplet Loss, harder negative mining).
+
+* Further tuning of embedding dimension and sampling strategy.
+
+Overall, the achieved performance is reasonable given the open-set setting, and results clearly improve with stronger metric-learning objectives.
 
 ## How to run the code for train-validation split? This is the classification task on the seen labels. Unseen label experiment will be explained in the TASK5.
 
